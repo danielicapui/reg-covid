@@ -71,8 +71,9 @@ class CustomLinearRegression:
         image = image.resize((size, size), Image.ANTIALIAS)
         return self.rgb2gray(np.array(image.convert('RGB')))  # .tolist()
 
-    def create_image_data_set(self, N, size):
-        filepath = "/Users/moraisneto/PycharmProjects/covidAI/suspeitos/"
+    def create_image_data_set(self, N, size,filepath=None):
+        #aqui seria interessante colocar uma localização absoluta do projeto ou modificar fileparth de parametro
+        filepath =filepath or "/Users/moraisneto/PycharmProjects/covidAI/suspeitos/"
         imagesX = []
         for i in range(1, N + 1):
             imagesX.append(self.open_image(filepath + "{}.jpg".format(i), size))
